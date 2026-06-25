@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = 'https://splendid-chaja-ac783b.netlify.app';
+const DEFAULT_SITE_URL = 'https://inviitor.ro';
 const DEFAULT_API_URL = 'https://api.laurentiumarian.ro';
 
 function trimTrailingSlash(value: string) {

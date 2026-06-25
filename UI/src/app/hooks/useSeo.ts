@@ -33,7 +33,7 @@ function upsertCanonical(href: string) {
 }
 
 function upsertStructuredData(data: Record<string, unknown> | Array<Record<string, unknown>>) {
-  const scriptId = 'joblio-structured-data';
+  const scriptId = 'inviitor-structured-data';
   let script = document.getElementById(scriptId) as HTMLScriptElement | null;
 
   if (!script) {
@@ -62,7 +62,7 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
   const seo = useMemo(() => {
     const origin = getSiteUrl();
     const canonicalUrl = `${origin}${location.pathname}${location.search}`;
-    const imageUrl = `${origin}/joblio_logo.png`;
+    const imageUrl = `${origin}/inviitor_logo.png`;
     const searchParams = new URLSearchParams(location.search);
     const searchLabel = buildSearchLabel(searchParams);
     const jobId = location.pathname.startsWith('/job/') ? location.pathname.replace('/job/', '') : '';
@@ -70,11 +70,11 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
 
     if (location.pathname === '/cautare') {
       const title = searchLabel
-        ? `Joburi pentru ${searchLabel} | Joblio.ro`
-        : 'Joburi disponibile in Romania | Joblio.ro';
+        ? `Joburi pentru ${searchLabel} | Inviitor.ro`
+        : 'Joburi disponibile in Romania | Inviitor.ro';
       const description = searchLabel
-        ? `Exploreaza joburi pentru ${searchLabel} si filtreaza rapid anunturile dupa companie, oras sau judet pe Joblio.ro.`
-        : 'Vezi joburile disponibile in Romania si filtreaza anunturile dupa companie, oras, judet sau cuvinte cheie pe Joblio.ro.';
+        ? `Exploreaza joburi pentru ${searchLabel} si filtreaza rapid anunturile dupa companie, oras sau judet pe Inviitor.ro.`
+        : 'Vezi joburile disponibile in Romania si filtreaza anunturile dupa companie, oras, judet sau cuvinte cheie pe Inviitor.ro.';
 
       return {
         title,
@@ -91,7 +91,59 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
           inLanguage: 'ro-RO',
           isPartOf: {
             '@type': 'WebSite',
-            name: 'Joblio.ro',
+            name: 'Inviitor.ro',
+            url: origin,
+          },
+        },
+      };
+    }
+
+    if (location.pathname === '/politica-de-confidentialitate') {
+      const title = 'Politica de confidentialitate | Inviitor.ro';
+      const description = 'Citeste politica de confidentialitate Inviitor.ro si afla cum sunt prelucrate, protejate si gestionate datele cu caracter personal in cadrul platformei.';
+
+      return {
+        title,
+        description,
+        canonicalUrl,
+        imageUrl,
+        type: 'website',
+        structuredData: {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: title,
+          description,
+          url: canonicalUrl,
+          inLanguage: 'ro-RO',
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'Inviitor.ro',
+            url: origin,
+          },
+        },
+      };
+    }
+
+    if (location.pathname === '/conditii-de-utilizare') {
+      const title = 'Conditii de utilizare | Inviitor.ro';
+      const description = 'Citeste conditiile de utilizare Inviitor.ro si afla regulile aplicabile pentru accesarea, folosirea continutului si responsabilitatile utilizatorilor platformei.';
+
+      return {
+        title,
+        description,
+        canonicalUrl,
+        imageUrl,
+        type: 'website',
+        structuredData: {
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: title,
+          description,
+          url: canonicalUrl,
+          inLanguage: 'ro-RO',
+          isPartOf: {
+            '@type': 'WebSite',
+            name: 'Inviitor.ro',
             url: origin,
           },
         },
@@ -100,11 +152,11 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
 
     if (location.pathname.startsWith('/job/')) {
       const title = currentJob
-        ? `${currentJob.titlu} la ${currentJob.companie} | Joblio.ro`
-        : 'Detalii job | Joblio.ro';
+        ? `${currentJob.titlu} la ${currentJob.companie} | Inviitor.ro`
+        : 'Detalii job | Inviitor.ro';
       const description = currentJob
-        ? `Vezi detaliile jobului ${currentJob.titlu} la ${currentJob.companie} in ${currentJob.localitate}, ${currentJob.judet}, pe Joblio.ro.`
-        : 'Citeste detaliile complete ale unui job publicat pe Joblio.ro.';
+        ? `Vezi detaliile jobului ${currentJob.titlu} la ${currentJob.companie} in ${currentJob.localitate}, ${currentJob.judet}, pe Inviitor.ro.`
+        : 'Citeste detaliile complete ale unui job publicat pe Inviitor.ro.';
 
       return {
         title,
@@ -144,7 +196,7 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
       };
     }
 
-    const title = 'Joblio.ro - Joburi actuale din Romania';
+    const title = 'Inviitor.ro - Joburi actuale din Romania';
     const description = `Cauta joburi actuale din Romania, filtreaza dupa oras, judet sau companie si descopera peste ${totalJobs.toLocaleString('ro-RO')} oportunitati de cariera.`;
 
     return {
@@ -158,7 +210,7 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
         '@graph': [
           {
             '@type': 'WebSite',
-            name: 'Joblio.ro',
+            name: 'Inviitor.ro',
             url: origin,
             inLanguage: 'ro-RO',
             potentialAction: {
@@ -169,7 +221,7 @@ export function useSeo({ jobs, totalJobs }: SeoConfig) {
           },
           {
             '@type': 'Organization',
-            name: 'Joblio.ro',
+            name: 'Inviitor.ro',
             url: origin,
             logo: imageUrl,
           },

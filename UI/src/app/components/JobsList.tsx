@@ -226,7 +226,7 @@ export function JobsList({ jobs, jobsCount, companies, loadingMoreJobs, hasMoreJ
             <ArrowLeft className="w-5 h-5" />
           </Button>
           <div className="flex items-center gap-3">
-            <img src="/joblio_logo.png" alt="Joblio" className="h-11 w-auto object-contain" />
+            <img src="/inviitor_logo.png" alt="Inviitor" className="h-20 w-auto object-contain" />
             <div>
             <h1 className="mb-2 text-2xl font-semibold tracking-tight text-sky-950 md:text-3xl">Joburi Disponibile</h1>
             <p className="text-sky-900/70">Descoperă următoarea ta oportunitate de carieră</p>

@@ -23,7 +23,7 @@ export function LoadingState({
 
       <div className="w-full max-w-md rounded-[2rem] border border-white/75 bg-white/80 px-8 py-10 text-center shadow-[0_24px_80px_rgba(125,211,252,0.22)] backdrop-blur-xl sm:px-10">
         <div className="mx-auto flex w-fit items-center justify-center rounded-2xl border border-teal-100 bg-white/90 px-4 py-3 shadow-sm shadow-cyan-100/70">
-          <img src="/joblio_logo.png" alt="Joblio" className="h-9 w-auto object-contain sm:h-10" />
+          <img src="/inviitor_logo.png" alt="Inviitor" className="h-16 w-auto object-contain sm:h-20" />
         </div>
 
         <div className="mt-6 flex items-end justify-center gap-2" aria-hidden="true">

@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { Job, judeteRomania } from '../types/job';
-import { ArrowRight, Banknote, Briefcase, Building2, Check, ChevronDown, Laptop2, MapPin, Search, Sparkles } from 'lucide-react';
+import { ArrowRight, Banknote, Briefcase, Building2, Check, ChevronDown, Download, Laptop2, MapPin, Search, Smartphone, Sparkles } from 'lucide-react';
 import { formatSalary } from '../hooks/useJobs';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
@@ -12,6 +12,7 @@ import { LoadingState } from './LoadingState';
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover';
 import { Command, CommandEmpty, CommandInput, CommandItem, CommandList } from './ui/command';
 import { cn } from './ui/utils';
+import { ANDROID_APP_URL, SiteFooter } from './SiteFooter';
 
 interface HomeProps {
   jobs: Job[];
@@ -118,7 +119,7 @@ export function Home({ jobs, totalJobs, salaryFloor, salaryFloorCurrency, compan
       <header className="border-b border-teal-200/70 bg-white/80 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
           <Link to="/" className="flex items-center gap-3 text-sky-950">
-            <img src="/joblio_logo.png" alt="Joblio" className="h-10 w-auto object-contain" />
+            <img src="/inviitor_logo.png" alt="Inviitor" className="h-20 w-auto object-contain" />
           </Link>
           <nav aria-label="Navigare principală" className="hidden items-center gap-6 text-sm text-sky-800/80 md:flex">
             <a href="#joburi-recomandate" className="transition-colors hover:text-teal-700">Joburi noi</a>
@@ -448,7 +449,48 @@ export function Home({ jobs, totalJobs, salaryFloor, salaryFloorCurrency, compan
             </details>
           </div>
         </section>
+
+        <section className="mx-auto max-w-6xl px-4 pb-12">
+          <a
+            href={ANDROID_APP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block overflow-hidden rounded-[2rem] border border-teal-200/80 bg-[linear-gradient(135deg,_rgba(15,118,110,0.96),_rgba(14,165,233,0.92))] p-6 text-white shadow-xl shadow-cyan-200/60 transition-transform hover:-translate-y-1"
+          >
+            <div className="grid gap-6 md:grid-cols-[1.15fr_0.85fr] md:items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full bg-white/14 px-3 py-1 text-sm font-medium text-cyan-50 ring-1 ring-white/20">
+                  <Smartphone className="h-4 w-4" />
+                  Aplicația mobilă Inviitor
+                </div>
+                <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                  Descarcă aplicația Android și aplică mai rapid direct de pe telefon.
+                </h2>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-cyan-50/90 md:text-base">
+                  Deschide Google Play, instalează aplicația și urmărește oportunitățile noi într-o experiență optimizată pentru mobil.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-start gap-4 rounded-[1.5rem] border border-white/20 bg-white/10 p-5 backdrop-blur-sm md:items-end">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-teal-800 shadow-sm transition-colors group-hover:bg-cyan-50">
+                  <Download className="h-4 w-4" />
+                  Descarcă din Google Play
+                </span>
+                <img
+                  src="/google-play-badge.svg"
+                  alt="Descarcă aplicația Inviitor din Google Play"
+                  className="h-14 w-auto rounded-md shadow-lg shadow-sky-950/20"
+                />
+                <p className="max-w-sm text-sm leading-6 text-cyan-50/85 md:text-right">
+                  Click pe banner pentru a merge direct la pagina aplicației mobile.
+                </p>
+              </div>
+            </div>
+          </a>
+        </section>
       </main>
+
+      <SiteFooter />
     </div>
   );
 }

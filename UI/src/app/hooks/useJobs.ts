@@ -200,6 +200,8 @@ export { formatSalary };
 
 export function useJobs() {
   const location = useLocation();
+  const isPrivacyPolicyPage = location.pathname === '/politica-de-confidentialitate';
+  const isTermsPage = location.pathname === '/conditii-de-utilizare';
   const [jobs, setJobs] = useState<Job[]>([]);
   const [jobsCount, setJobsCount] = useState(0);
   const [totalJobs, setTotalJobs] = useState(0);
@@ -211,6 +213,11 @@ export function useJobs() {
   const [nextJobsPage, setNextJobsPage] = useState<string | null>(null);
 
   useEffect(() => {
+    if (isPrivacyPolicyPage || isTermsPage) {
+      setLoading(false);
+      return;
+    }
+
     const controller = new AbortController();
 
     async function loadJobs() {
@@ -268,7 +275,7 @@ export function useJobs() {
     loadJobs();
 
     return () => controller.abort();
-  }, [location.pathname, location.search]);
+  }, [isPrivacyPolicyPage, isTermsPage, location.pathname, location.search]);
 
   const deleteJob = (id: string) => {
     setJobs((currentJobs) => currentJobs.filter((job) => job.id !== id));

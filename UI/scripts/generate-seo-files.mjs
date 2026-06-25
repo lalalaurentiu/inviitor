@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const defaultSiteUrl = 'https://splendid-chaja-ac783b.netlify.app';
+const defaultSiteUrl = 'https://inviitor.ro';
 const siteUrl = (process.env.VITE_SITE_URL || defaultSiteUrl).replace(/\/$/, '');
 const distDir = path.resolve(process.cwd(), 'dist');
 const indexHtmlPath = path.join(distDir, 'index.html');

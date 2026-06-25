@@ -14,4 +14,12 @@ export const router = createBrowserRouter([
     path: '/job/:id',
     Component: Root,
   },
+  {
+    path: '/politica-de-confidentialitate',
+    Component: Root,
+  },
+  {
+    path: '/conditii-de-utilizare',
+    Component: Root,
+  },
 ]);
