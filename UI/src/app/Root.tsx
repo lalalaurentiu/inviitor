@@ -13,11 +13,12 @@ export default function Root() {
   const location = useLocation();
   const isPrivacyPolicyPage = location.pathname === '/politica-de-confidentialitate';
   const isTermsPage = location.pathname === '/conditii-de-utilizare';
+  const isJobDetailPage = location.pathname.startsWith('/job/');
   const { jobs, jobsCount, totalJobs, salaryFloor, salaryFloorCurrency, allCompanies, loading, loadingMoreJobs, hasMoreJobs, loadMoreJobs, deleteJob } = useJobs();
 
   useSeo({ jobs, totalJobs });
 
-  if (loading && !isPrivacyPolicyPage && !isTermsPage) {
+  if (loading && !isPrivacyPolicyPage && !isTermsPage && !isJobDetailPage) {
     return <LoadingState fullScreen />;
   }
 
